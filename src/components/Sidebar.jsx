@@ -23,10 +23,10 @@ const Sidebar = () => {
         
         {/* Logo */}
         <div className="logo-section">
-          <img
+          {/* <img
             src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png"
             alt="logo"
-          />
+          /> */}
           <h2>MyCompany</h2>
         </div>
 
@@ -57,7 +57,7 @@ const Sidebar = () => {
           <h3>Admin Panel</h3>
 
           <div className="profile">
-            <img src="https://i.pravatar.cc/40" alt="user" />
+            {/* <img src="https://i.pravatar.cc/40" alt="user" /> */}
           </div>
         </div>
 

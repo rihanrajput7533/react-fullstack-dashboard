@@ -1,19 +1,38 @@
+import axios from "axios";
 import { useState } from "react";
 
 const User = () => {
 
-    const [users] = useState([
-        { id: 1, name: "Rihan Ali", email: "rihan@gmail.com", role: "Admin" },
-        { id: 2, name: "Aman Khan", email: "aman@gmail.com", role: "User" },
-        { id: 3, name: "Sara Khan", email: "sara@gmail.com", role: "Editor" },
-    ]);
 
-    
+
+    const [userData, setUserData] = useState([])
+
+    const handleGetAllUserList = async () => {
+
+        try {
+            const userList = await axios.get("http://localhost:8000/users")
+            setUserData(userList.data)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+
+
+    }
+
+    console.log("userData===", userData);
+
+
+
 
     return (
         <div className="user-container">
 
             <h2>User Management</h2>
+
+            <button onClick={() => handleGetAllUserList()} >api</button>
 
             <table className="user-table">
                 <thead>
@@ -27,22 +46,27 @@ const User = () => {
                 </thead>
 
                 <tbody>
-                    {users.map((user) => (
-                        <tr key={user.id}>
-                            <td>{user.id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
+                    {users.map((val, index) => {
+
+                        return(
+                        <tr >
+                            <td>{val.id}</td>
+                            <td>{val.firstName}</td>
+                            <td>{val.lastName}</td>
+                            <td>{val.email}</td>
+                            <td>{val.password}</td>
                             <td>
-                                <span className={`role ${user.role.toLowerCase()}`}>
+                                {/* <span className={`role ${user.role.toLowerCase()}`}>
                                     {user.role}
-                                </span>
+                                </span> */}
                             </td>
                             <td>
                                 <button className="edit-btn">Edit</button>
                                 <button className="delete-btn">Delete</button>
                             </td>
                         </tr>
-                    ))}
+                        )
+                    })}
                 </tbody>
             </table>
 
