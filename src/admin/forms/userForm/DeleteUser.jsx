@@ -8,7 +8,7 @@ const DeleteUser = (props) => {
     return (
         <>
 
-            <Modal show={props.openDeleteUserForm} onHide={() => props.setOpenDeleteUserFrom(false)}> 
+            <Modal show={props.openDeleteUserForm} onHide={() => props.setOpenDeleteUserFrom(false)} centered> 
                 <Modal.Header closeButton> 
                     <Modal.Title>Delete User</Modal.Title>
                 </Modal.Header>

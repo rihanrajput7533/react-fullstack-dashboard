@@ -6,12 +6,14 @@ import { faEdit, faEye } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EditUser from "./forms/userForm/EditUser";
 import DeleteUser from "./forms/userForm/DeleteUser";
+import ViewUser from "./forms/userForm/ViewUser";
 
 const User = () => {
 
 
 
     const [openAddUserForm, setOpenAddUserFrom] = useState(false);
+    const [openViewUserForm, setOpenViewUserFrom] = useState(false);
     const [openEditUserForm, setOpenEditUserFrom] = useState(false);
     const [openDeleteUserForm, setOpenDeleteUserFrom] = useState(false);
     const [userData, setUserData] = useState([])
@@ -38,6 +40,10 @@ const User = () => {
     const handleAddUserModel = useCallback( () => {
 
         setOpenAddUserFrom(true)
+    }, [])
+    const handleViewUserModel = useCallback( () => {
+
+        setOpenViewUserFrom(true)
     }, [])
 
     const handleEditUserModel = useCallback( () => {
@@ -74,13 +80,13 @@ const User = () => {
                             return (
                                 <tr key={index}>
                                     <td>{val.id}</td>
-                                    <td>{val.firstName} {val.lastName}</td>
+                                    <td>{val.firstname} {val.lastName}</td>
                                     <td>{val.email}</td>
                                     <td>{val.password}</td>
                                     <td>{val.role || "User"}</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faEye} onClick={() => handleEditUserModel() }/>
-                                        <FontAwesomeIcon icon={faEdit}/>
+                                        <FontAwesomeIcon icon={faEye} onClick={() => handleViewUserModel()}/>
+                                        <FontAwesomeIcon icon={faEdit} onClick={() => handleEditUserModel() }/>
                                         <FontAwesomeIcon icon={faTrash} onClick={() => handleDeleteUserModel()}/>
                                     </td>
                                 </tr>
@@ -92,6 +98,7 @@ const User = () => {
             </div>
 
             <AddUser openAddUserForm={openAddUserForm}  setOpenAddUserFrom = {setOpenAddUserFrom}/>
+            <ViewUser openViewUserForm={openViewUserForm}  setOpenViewUserFrom = {setOpenViewUserFrom}/>
             <EditUser openEditUserForm={openEditUserForm} setOpenEditUserFrom ={setOpenEditUserFrom} />
             <DeleteUser openDeleteUserForm={openDeleteUserForm} setOpenDeleteUserFrom ={setOpenDeleteUserFrom} />
         </>

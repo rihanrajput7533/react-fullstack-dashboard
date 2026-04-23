@@ -1,12 +1,27 @@
 {
   "users": [
-    { 
+    {
       "id": "1",
       "firstName": "rihan",
       "lastName": "rihan",
       "password": "rihan",
       "user": "1",
       "email": "rihan@gmail.com"
+    },
+    {
+      "firstname": "Rihan",
+      "lastname": "Rajput",
+      "email": "rihanrajput7533@gmail.com",
+      "password": "Rihan@123",
+      "id": "jFf3wD8yZHI"
+    },
+    {
+      "firstname": "ayan",
+      "lastname": "test",
+      "email": "test@gmail.com",
+      "password": "test",
+      "id": "IWcaWPQDKxo"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

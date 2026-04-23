@@ -8,7 +8,7 @@ const EditUser = (props) => {
     return (
         <>
 
-            <Modal show={props.openEditUserForm} onHide={() => props.setOpenEditUserFrom(false)}> 
+            <Modal show={props.openEditUserForm} onHide={() => props.setOpenEditUserFrom(false)} centered> 
                 <Modal.Header closeButton> 
                     <Modal.Title>Edit User</Modal.Title>
                 </Modal.Header>
